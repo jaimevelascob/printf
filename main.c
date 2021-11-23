@@ -3,6 +3,6 @@
 int	ft_printf(const char *str, ...);
 int	main(void)
 {
-	//printf("hola primero");
-	ft_printf("%s %d %% %c, hexa mayus : %X hexa minus : %x unsigned : %u", "hola", 12, "x", 10, 10, 12);
+	printf(("%d\n"), printf("%x", 12222));
+	ft_printf("%x", 12222);
 }

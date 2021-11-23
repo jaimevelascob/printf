@@ -11,15 +11,12 @@
 /* ************************************************************************** */
 
 #include "printf.h"
-void	ft_putchar(char z)
-{
-	write(1, &z, 1);
-}
 
-void	ft_putnbr_base(long nbr, char *base)
+int	ft_putnbr_base(long nbr, char *base)
 {
 	int	i;
-	long n[100];
+	int	start;
+	long	n[100];
 
 	i = 0;
 	if (nbr == 0)
@@ -29,7 +26,9 @@ void	ft_putnbr_base(long nbr, char *base)
 		n[i++] = nbr % 16;
 		nbr /= 16;
 	}
+	start = i;
 	while (i > 0)
 		ft_putchar(base[n[--i]]);
+	return (start);
 }
 

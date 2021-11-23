@@ -11,17 +11,10 @@
 /* ************************************************************************** */
 
 #include "printf.h"
-void	ft_unsignbr(unsigned int nb, int fd)
+int	ft_unsignbr(unsigned int nb)
 {
+	int i;
 	
-		if (nb < 0)
-		{
-			ft_putchar_fd('-', fd);
-			nb = nb * -1;
-		}
-		if (nb > 9)
-		{
-			ft_putnbr_fd(nb / 10, fd);
-		}
-		ft_putchar_fd((nb % 10) + '0', fd);
+	i = ft_putnbr(nb);
+	return (i);		
 }
