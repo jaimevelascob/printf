@@ -11,11 +11,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	cd ./source/libft/ && make
-	cp ./source/libft/libft.a $(INCLUDE)
+	cp ./source/libft/libft.a $(NAME)
 	$(LIB) $(NAME) $(OBJ)
 
 %.o : %.c
-	$(CC) $(CCFLAGS) -c -o $@ $< -I includes/
+	$(CC) $(CCFLAGS) -c $< -o ${<:.c=.o} -I includes/
 clean:
 	$(RM) $(OBJ)
 	${MAKE} clean -C ./source/libft
