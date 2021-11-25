@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
-int	ft_putnbr_base(long nbr, char *base)
+int	ft_putnbr_base(unsigned long long nbr, char *base)
 {
 	int	i;
 	int	start;
@@ -31,4 +31,3 @@ int	ft_putnbr_base(long nbr, char *base)
 		ft_putchar(base[n[--i]]);
 	return (start);
 }
-

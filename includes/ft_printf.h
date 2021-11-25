@@ -4,11 +4,12 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include "libft.h"
 
 int	ft_printf(const char *, ...);
 int	ft_putstr(char *s);
-int	ft_putnbr(int nb);
 void	ft_putchar(char c);
-int	ft_putnbr_base(long nbr, char *base);
-int    ft_unsignbr(unsigned int nb);
+int	ft_putnbr(int nb);
+int	ft_putnbr_base(unsigned long long nbr, char *base);
+int    	ft_unsignbr(unsigned int nb);
 #endif

@@ -10,25 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int	ft_print_return(char str, int *ncount, va_list arg)
 {
 	if (str == 'c')
 	{
-		ft_putchar(*(va_arg(arg, char*)));
-		ncount++;
+		ft_putchar((va_arg(arg, int)));
+		*ncount += 1;
 	}
 	if(str == 's')
 		*ncount += ft_putstr((va_arg(arg, char*)));
 	if (str == 'd' || str == 'i')
 		*ncount += ft_putnbr(va_arg(arg, int));
 	if (str == 'u')
-		*ncount += ft_unsignbr(va_arg(arg, unsigned int));	
+		*ncount += ft_putnbr_base(va_arg(arg, unsigned int), "0123456789");	
 	if (str == 'x')
-		*ncount	+= ft_putnbr_base(va_arg(arg, long), "0123456789abcdef");
+		*ncount	+= ft_putnbr_base(va_arg(arg, unsigned int), "0123456789abcdef");
 	if (str == 'X')
-		*ncount += ft_putnbr_base(va_arg(arg, long), "0123456789ABCDEF");
+		*ncount += ft_putnbr_base(va_arg(arg, unsigned int), "0123456789ABCDEF");
+	if (str == 'p')
+	{
+		ft_putstr("0x");
+		*ncount += ft_putnbr_base(va_arg(arg, unsigned long), "0123456789abcdef") + 2;
+	}
 	return (*ncount);
 }
 int ft_printf(const char *str, ...)
@@ -60,7 +65,7 @@ int ft_printf(const char *str, ...)
 		}
 	}
 	va_end(arg);
-	printf(" %d ", count);
+	printf("%d", count);
 	return (count);
 }
 

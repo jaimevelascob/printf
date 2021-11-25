@@ -10,12 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
+
 int	ft_putnbr(int nb)
 {
 	char	*new;
+	long	num;
 	int	i;
-	
+
+	num = ft_strlen(new = ft_itoa(nb));
 	if (nb == -2147483648)
 		ft_putstr("-2147483648");
 	else
@@ -28,11 +31,12 @@ int	ft_putnbr(int nb)
 		i = 0;
 		while (nb)
 		{
-		//	new[i] = (nb % 10) + '0';
+			new[i] = (nb % 10) + '0';
 			nb /= 10;
 			i++;
 		}
-	//	ft_putstr(new);
+		while(i > 0)
+			ft_putchar(new[--i]);
 	}
-	return (i);
+	return (num);
 }
