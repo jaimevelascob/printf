@@ -6,7 +6,7 @@
 /*   By: jvelasco <jvelasco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 13:47:36 by jvelasco          #+#    #+#             */
-/*   Updated: 2021/11/19 11:42:32 by jvelasco         ###   ########.fr       */
+/*   Updated: 2021/11/25 16:44:32 by jvelasco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ int	ft_putstr(char *s)
 	int	i;
 
 	i = 0;
-	if (s)
+	if (!s)
+		return (write(1, "(null)", 6));
+	while (s[i] != '\0') 
 	{
 		while (s[i])
 			write(1, &s[i++], 1);

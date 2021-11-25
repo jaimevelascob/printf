@@ -6,7 +6,7 @@
 /*   By: jvelasco <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/18 12:26:17 by jvelasco          #+#    #+#             */
-/*   Updated: 2021/11/20 19:34:21 by jvelasco         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:55:34 by jvelasco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,12 @@ int	ft_print_return(char str, int *ncount, va_list arg)
 	if(str == 's')
 		*ncount += ft_putstr((va_arg(arg, char*)));
 	if (str == 'd' || str == 'i')
-		*ncount += ft_putnbr(va_arg(arg, int));
+	{
+		char *str = ft_itoa(va_arg(arg, int));
+		*ncount += ft_strlen(str);
+		ft_putstr_fd(str, 1);
+		free(str);
+	}
 	if (str == 'u')
 		*ncount += ft_putnbr_base(va_arg(arg, unsigned int), "0123456789");	
 	if (str == 'x')
@@ -65,7 +70,7 @@ int ft_printf(const char *str, ...)
 		}
 	}
 	va_end(arg);
-	printf("%d", count);
+//	printf("%d", count);
 	return (count);
 }
 
