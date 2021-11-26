@@ -3,7 +3,7 @@ rm = rm -f
 CC = gcc
 CCFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
-SRC = ft_printf.c ft_putchar.c ft_putnbr_base.c ft_putnbr.c ft_putstr.c ft_unsignbr.c
+SRC = ft_printf.c ft_putchar.c ft_putnbr_base.c ft_putnbr.c ft_putstr.c 
 OBJ = $(SRC:.c=.o)
 INCLUDE = ft_printf.h
 
@@ -15,7 +15,7 @@ $(NAME): $(OBJ)
 	$(LIB) $(NAME) $(OBJ)
 
 %.o : %.c
-	$(CC) $(CCFLAGS) -glldb -c $< -o ${<:.c=.o} -I includes/
+	$(CC) $(CCFLAGS) -c $< -o ${<:.c=.o} -I includes/
 clean:
 	$(RM) $(OBJ)
 	${MAKE} clean -C ./libft

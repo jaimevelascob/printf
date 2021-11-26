@@ -1,47 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvelasco <jvelasco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 14:27:38 by jvelasco          #+#    #+#             */
-/*   Updated: 2021/11/25 13:39:33 by jvelasco         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:51:57 by jvelasco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int nb)
+int	ft_putnbr_division(va_list arg)
 {
-	char	*new;
-	long	num;
-	int	i;
+	char	*str;
+	int		ncount;
 
-	i = 0;
-	num = ft_strlen(new = ft_itoa(nb));
-	if (nb == -2147483648)
-		ft_putstr("-2147483648");
-	if (nb == 0)
-	{
-		ft_putchar('0');
-		return 1;
-	}
-	else
-	{
-		if (nb <= 0)
-		{
-			ft_putchar('-');
-			nb = nb * -1;
-		}
-		while (nb)
-		{
-			new[i] = (nb % 10) + '0';
-			nb /= 10;
-			i++;
-		}
-		while(i > 0)
-			ft_putchar(new[--i]);
-	}
-	return (num);
+	ncount = 0;
+	str = ft_itoa(va_arg(arg, int));
+	ncount += ft_strlen(str);
+	ft_putstr_fd(str, 1);
+	free(str);
+	return (ncount);
 }

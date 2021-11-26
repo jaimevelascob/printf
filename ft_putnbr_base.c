@@ -6,7 +6,7 @@
 /*   By: jvelasco <jvelasco@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 15:14:28 by jvelasco          #+#    #+#             */
-/*   Updated: 2021/11/25 17:08:04 by jvelasco         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:28:05 by jvelasco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,3 @@ int	ft_putnbr_base(unsigned long long num, char *base)
 	i += 1;
 	return (i);
 }
-
